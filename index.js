@@ -140,12 +140,15 @@ function fillSalesRep(element){
                 //this is for rest of the countries like if we have 27 countries 7 country goes to 3 people
                 //and last 6 countries go to last person here
                 if(i == countriesOfRegion.length -1){
-                    mainArr = {
-                        region: element,
-                        countryList: countryArr,
-                        countryCount: counter
-                    };
-                    salesRep.push(mainArr);
+                    if(counter != 0){
+                        mainArr = {
+                            region: element,
+                            countryList: countryArr,
+                            countryCount: counter
+                        };
+                        salesRep.push(mainArr);
+                    }
+                    
                     //return our final array for this region
                     return salesRep;
                 } 
@@ -155,5 +158,7 @@ function fillSalesRep(element){
 
 const port= process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`You can check countries or specific region on localhost:${port}`);
+  console.log(`You can check countries or specific region on localhost:${port}/countries`);
+  console.log(`You can check representative numbers on localhost:${port}/salesrep`);
+  console.log(`You can check optimal solution about representatives on localhost:${port}/optimal`);
 });
