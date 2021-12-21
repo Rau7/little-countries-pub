@@ -6,7 +6,12 @@ const model = require('./db-model');
 const res = require("express/lib/response");
 const { send } = require("express/lib/response");
 
-
+/**
+ * FOR ENDPOINT SALESREP (TASK 1)
+ * 
+ * this function sends region, country name
+ *
+*/
 app.get("/countries", (req, res, next) => {
     //this variable is for query parameter
     var spe_reg = req.query.region;
@@ -35,6 +40,13 @@ app.get("/countries", (req, res, next) => {
 
 });
 
+
+/**
+ * FOR ENDPOINT SALESREP (TASK 2)
+ * 
+ * this function sends region, maxSalesRep, minSalesRep
+ *
+*/
 app.get("/salesrep", (req, res, next) => {
     //node-fetch cannot be used because they removed require it only works with import :(
 
@@ -68,7 +80,12 @@ app.get("/salesrep", (req, res, next) => {
 
 });
 
-
+/**
+ * FOR BONUS TASK
+ * 
+ * this function sends optimal solution 
+ *
+*/
 app.get("/optimal", (req, res, next) => {
     //node-fetch cannot be used because they removed require it only works with import :(
 
@@ -99,7 +116,13 @@ app.get("/optimal", (req, res, next) => {
 });
 
 
-
+/**
+ * this function fills the salesRep variable with optimal solution for
+ * each region
+ * 
+ * @param {any} element - represent region (i.e. Europe, MAE)
+ *
+*/
 function fillSalesRep(element){
     //our result array for each region calculation
     var salesRep = [];
